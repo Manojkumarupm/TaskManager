@@ -24,7 +24,7 @@ namespace TaskManager.UnitTestProject
             // Assert the result  
             TaskInformation taskInformation;
             Assert.IsTrue(response.TryGetContentValue<TaskInformation>(out taskInformation));
-            Assert.AreEqual("Initial Task", taskInformation.TaskDesciption);
+            Assert.AreEqual("Initial Task", taskInformation.TaskDescription);
         }
 
         
@@ -75,7 +75,7 @@ namespace TaskManager.UnitTestProject
             TaskInformation i = new TaskInformation();
             i.ParentID =1;
             i.Priority = 5 ;
-            i.TaskDesciption = "This is beyond expected Range.......................................................................................................................................................................................................................................";
+            i.TaskDescription = "This is beyond expected Range.......................................................................................................................................................................................................................................";
             i.StartDate = Convert.ToDateTime( "2018-12-07");
             i.EndDate =  Convert.ToDateTime( "2018-12-08");
             // Act on Test  
@@ -94,7 +94,7 @@ namespace TaskManager.UnitTestProject
             controller.Configuration = new HttpConfiguration();
 
             // Act on Test  
-            var response = controller.Post(new TaskInformation { TaskId= 0 ,ParentID = null, TaskDesciption = "New Task for Parent", Priority = 5, StartDate = Convert.ToDateTime( "2018-12-08"), EndDate = Convert.ToDateTime( "2018-12-08") });
+            var response = controller.Post(new TaskInformation { TaskId= 0 ,ParentID = null, TaskDescription = "New Task for Parent", Priority = 5, StartDate = Convert.ToDateTime( "2018-12-08"), EndDate = Convert.ToDateTime( "2018-12-08") });
             // Assert the result  
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.Created);
@@ -109,7 +109,7 @@ namespace TaskManager.UnitTestProject
             controller.Configuration = new HttpConfiguration();
 
             // Act on Test  
-            var response = controller.Put(new TaskInformation { TaskId = 0, ParentID = 1, TaskDesciption = "New Task for Parent Updated", Priority = 5, StartDate = Convert.ToDateTime("2018-12-08"), EndDate = Convert.ToDateTime("2018-12-08") });
+            var response = controller.Put(new TaskInformation { TaskId = 0, ParentID = 1, TaskDescription = "New Task for Parent Updated", Priority = 5, StartDate = Convert.ToDateTime("2018-12-08"), EndDate = Convert.ToDateTime("2018-12-08") });
             // Assert the result  
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK);
@@ -123,7 +123,7 @@ namespace TaskManager.UnitTestProject
             controller.Configuration = new HttpConfiguration();
 
             // Act on Test  
-            var response = controller.Put(new TaskInformation { TaskId = 0, ParentID = 1, TaskDesciption = "Beyond expected Limit........................................................................................................................................................................................................", Priority = 5, StartDate = Convert.ToDateTime("2018-12-08"), EndDate = Convert.ToDateTime("2018-12-08") });
+            var response = controller.Put(new TaskInformation { TaskId = 0, ParentID = 1, TaskDescription = "Beyond expected Limit........................................................................................................................................................................................................", Priority = 5, StartDate = Convert.ToDateTime("2018-12-08"), EndDate = Convert.ToDateTime("2018-12-08") });
             // Assert the result  
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.BadRequest);

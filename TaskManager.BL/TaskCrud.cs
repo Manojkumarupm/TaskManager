@@ -78,7 +78,7 @@ namespace TaskManager.BL
                     value.StartDate = i.StartDate;
                     value.EndDate = i.EndDate;
                     value.ParentID = i.ParentID;
-                    value.TaskDesciption = i.TaskDesciption;
+                    value.TaskDescription = i.TaskDescription;
                     value.IsTaskCompleted = i.IsTaskCompleted;
                     PE.SaveChanges();
                     return "Updated";

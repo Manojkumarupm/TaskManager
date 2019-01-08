@@ -11,11 +11,11 @@
           </Key>
           <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ParentID" Type="int" />
-          <Property Name="TaskDesciption" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TaskDescription" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="StartDate" Type="date" Nullable="false" />
           <Property Name="EndDate" Type="date" Nullable="false" />
           <Property Name="Priority" Type="int" Nullable="false" />
-          <Property Name="IsTaskCompleted" Type="bit" Nullable="false" />
+          <Property Name="IsTaskCompleted" Type="int" />
         </EntityType>
         <EntityContainer Name="CapsuleModelStoreContainer">
           <EntitySet Name="TaskInformation" EntityType="Self.TaskInformation" Schema="dbo" store:Type="Tables" />
@@ -33,11 +33,11 @@
           </Key>
           <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ParentID" Type="Int32" />
-          <Property Name="TaskDesciption" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="StartDate" Type="DateTime" Precision="0" Nullable="false" />
-          <Property Name="EndDate" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="TaskDescription" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Priority" Type="Int32" Nullable="false" />
-          <Property Name="IsTaskCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsTaskCompleted" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -52,7 +52,7 @@
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="TaskDesciption" ColumnName="TaskDesciption" />
+                <ScalarProperty Name="TaskDescription" ColumnName="TaskDescription" />
                 <ScalarProperty Name="ParentID" ColumnName="ParentID" />
                 <ScalarProperty Name="TaskId" ColumnName="TaskId" />
               </MappingFragment>

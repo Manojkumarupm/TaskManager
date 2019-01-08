@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Http.Description;
 using TaskManager.BL;
 using TaskManager.DAL;
 namespace TaskManager.Services.Controllers
@@ -12,7 +13,7 @@ namespace TaskManager.Services.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+    
     public class TaskController : ApiController
     {
         public TaskCrud TaskDetailsGetter { get; set; }
@@ -34,6 +35,7 @@ namespace TaskManager.Services.Controllers
         /// <param name="TaskId"></param>
         /// <returns></returns>
         [HttpGet]
+         [ResponseType(typeof(TaskInformation))]
         public HttpResponseMessage Get(int TaskId)
         {
 
@@ -53,6 +55,7 @@ namespace TaskManager.Services.Controllers
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
+        [ResponseType(typeof(void))]
         public HttpResponseMessage Post([FromBody] TaskInformation i)
         {
             string Result = null;
@@ -79,6 +82,7 @@ namespace TaskManager.Services.Controllers
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
+        [ResponseType(typeof(void))]
         public HttpResponseMessage Put([FromBody] TaskInformation i)
         {
             string Result = null;
@@ -106,6 +110,7 @@ namespace TaskManager.Services.Controllers
         /// </summary>
         /// <param name="TaskId"></param>
         /// <returns></returns>
+        [ResponseType(typeof(TaskInformation))]
         public HttpResponseMessage Delete(int TaskId)
         {
             string Result = null;

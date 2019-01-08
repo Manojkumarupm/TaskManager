@@ -16,10 +16,10 @@ namespace TaskManager.DAL
     {
         public int TaskId { get; set; }
         public Nullable<int> ParentID { get; set; }
-        public string TaskDesciption { get; set; }
+        public string TaskDescription { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
         public int Priority { get; set; }
-        public bool IsTaskCompleted { get; set; }
+        public Nullable<int> IsTaskCompleted { get; set; }
     }
 }
